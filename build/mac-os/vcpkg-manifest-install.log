@@ -1,0 +1,41 @@
+Detecting compiler hash for triplet arm64-osx...
+The following packages will be built and installed:
+    fmt[core]:arm64-osx -> 8.1.1#2 -- /Users/ronaldanderson/Desktop/Ronald/c-plus-plus/vcpkg/buildtrees/versioning_/versions/fmt/1f0a5cf3aa202e9833dcc5d3fa36688ecf295ca4
+    nlohmann-json[core]:arm64-osx -> 3.10.5#3 -- /Users/ronaldanderson/Desktop/Ronald/c-plus-plus/vcpkg/buildtrees/versioning_/versions/nlohmann-json/91f188e19b106e7d316de593e98f3319f8f5ec25
+  * vcpkg-cmake[core]:arm64-osx -> 2022-05-10#1 -- /Users/ronaldanderson/Desktop/Ronald/c-plus-plus/vcpkg/buildtrees/versioning_/versions/vcpkg-cmake/8b07d914c90cf8f611973318c85d3af13201e3f9
+  * vcpkg-cmake-config[core]:arm64-osx -> 2022-02-06#1 -- /Users/ronaldanderson/Desktop/Ronald/c-plus-plus/vcpkg/buildtrees/versioning_/versions/vcpkg-cmake-config/8d54cc4f487d51b655abec5f9c9c3f86ca83311f
+Additional packages (*) will be modified to complete this operation.
+Restored 4 package(s) from /Users/ronaldanderson/.cache/vcpkg/archives in 30.15 ms. Use --debug to see more details.
+Installing 1/4 vcpkg-cmake-config:arm64-osx...
+Elapsed time to handle vcpkg-cmake-config:arm64-osx: 1.517 ms
+Installing 2/4 vcpkg-cmake:arm64-osx...
+Elapsed time to handle vcpkg-cmake:arm64-osx: 2.214 ms
+Installing 3/4 fmt:arm64-osx...
+Elapsed time to handle fmt:arm64-osx: 5.193 ms
+Installing 4/4 nlohmann-json:arm64-osx...
+Elapsed time to handle nlohmann-json:arm64-osx: 11.95 ms
+
+Total elapsed time: 2.056 s
+
+The package fmt provides CMake targets:
+
+    find_package(fmt CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE fmt::fmt)
+
+    # Or use the header-only version
+    find_package(fmt CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE fmt::fmt-header-only)
+
+The package nlohmann-json provides CMake targets:
+
+    find_package(nlohmann_json CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE nlohmann_json::nlohmann_json)
+
+The package nlohmann-json can be configured to not provide implicit conversions via a custom triplet file:
+
+    set(nlohmann-json_IMPLICIT_CONVERSIONS OFF)
+
+For more information, see the docs here:
+    
+    https://json.nlohmann.me/features/macros/#json_use_implicit_conversions
+

@@ -1,0 +1,4 @@
+/Users/ronaldanderson/Desktop/Ronald/c-plus-plus/hotel-management-system/build/mac-os/CMakeFiles/HotelManagementSystemSRCS.dir
+/Users/ronaldanderson/Desktop/Ronald/c-plus-plus/hotel-management-system/build/mac-os/CMakeFiles/HotelManagementSystem.dir
+/Users/ronaldanderson/Desktop/Ronald/c-plus-plus/hotel-management-system/build/mac-os/CMakeFiles/edit_cache.dir
+/Users/ronaldanderson/Desktop/Ronald/c-plus-plus/hotel-management-system/build/mac-os/CMakeFiles/rebuild_cache.dir
