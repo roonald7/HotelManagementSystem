@@ -1,3 +1,4 @@
-./.vscode/
-./.vs/
-./build
+/.vscode/
+/.vs/
+/build
+/.DS_STORE
