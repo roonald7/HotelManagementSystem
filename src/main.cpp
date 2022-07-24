@@ -7,8 +7,6 @@
 	Last Modified	: 23/07/2022
 */
 #include "Hotel.h"
-#include "json_model.h"
-#include "utils.h"
 #include <iostream>
 
 using namespace std;
@@ -46,14 +44,14 @@ Hotel mock_hotel()
 {
 	Hotel sdkHotelMaracanau;
 
-	sdkHotelMaracanau.registerPerson({"Augusto Pedrosa", "Fortaleza", ""});
-	sdkHotelMaracanau.registerPerson({"Breno Gomes", "Maracanaú", ""});
-	sdkHotelMaracanau.registerPerson({"Estevao Simao", "Fortaleza", ""});
-	sdkHotelMaracanau.registerPerson({"Polycarpo Neto", "Caucaia", ""});
-	sdkHotelMaracanau.registerPerson({"Rosemberg Braga", "Eusébio", ""});
-	sdkHotelMaracanau.registerPerson({"Washington Filho", "Fortaleza", ""});
+	sdkHotelMaracanau.registerperson({"Augusto Pedrosa", "Fortaleza", ""});
+	sdkHotelMaracanau.registerperson({"Breno Gomes", "Maracanaú", ""});
+	sdkHotelMaracanau.registerperson({"Estevao Simao", "Fortaleza", ""});
+	sdkHotelMaracanau.registerperson({"Polycarpo Neto", "Caucaia", ""});
+	sdkHotelMaracanau.registerperson({"Rosemberg Braga", "Eusébio", ""});
+	sdkHotelMaracanau.registerperson({"Washington Filho", "Fortaleza", ""});
 
-	sdkHotelMaracanau.showRegisteredPersons();
+	sdkHotelMaracanau.showRegisteredpersons();
 
 	return sdkHotelMaracanau;
 }

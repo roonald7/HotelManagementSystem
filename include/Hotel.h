@@ -1,18 +1,26 @@
 #pragma once
 
-#include "Guest.h"
+#include "guest.h"
 #include <vector>
 
+namespace ns
+{
+struct HotelDataCtx
+{
+    vector<ns::Guest> listOfGuests;
+    vector<ns::Person> listOfRegisteredperson;
+};
+}
 class Hotel
 {
 private:
-    std::vector<Guest> listOfGuests;
-    std::vector<Person> listOfRegisteredPerson;
+    ns::HotelDataCtx hotelDataBase;
+    string pathDataRegisters = "/dataBase.json";
 public:
     Hotel();
     ~Hotel();
 
-    void registerPerson(const Person &person);
-    void showRegisteredPersons();
-    void updateDataBase();
+    void registerperson(const ns::Person &person);
+    void showRegisteredpersons();
+    void loadDataBase();
 };

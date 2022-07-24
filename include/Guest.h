@@ -1,24 +1,17 @@
 #pragma once
 
-#include "Person.h"
+#include "person.h"
 #include <stdint.h>
 
+namespace ns
+{
 struct Guest
 {
-    Person person;
+    ns::Person person;
     uint16_t room_num;
     uint8_t days;
     float fare;
 
-    Guest(Person person, uint16_t room_num, uint8_t days, float fare);
-    ~Guest();
+    Guest(ns::Person person, uint16_t room_num, uint8_t days, float fare);
 };
-
-Guest::Guest(Person person, uint16_t room_num, uint8_t days, float fare)
-    : person(person), room_num(room_num), days(days), fare(fare)
-{
-}
-
-Guest::~Guest()
-{
 }
