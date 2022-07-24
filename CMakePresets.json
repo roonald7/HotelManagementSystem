@@ -19,18 +19,34 @@
         {
             "name": "mac-os",
             "displayName": "MacOs Release Config",
+            "generator": "Ninja",
             "inherits": "default",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release",
                 "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreaded",
                 "VCPKG_TARGET_TRIPLET": "arm64-osx"
             }
+        },
+        {
+          "name": "win-rel",
+          "displayName": "Windows Release Config",
+          "generator": "Ninja",
+          "inherits": "default",
+          "cacheVariables": {
+              "CMAKE_BUILD_TYPE": "Release",
+              "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreaded",
+              "VCPKG_TARGET_TRIPLET": "x86-windows-static"
+          }
         }
     ],
     "buildPresets": [
         {
             "name": "mac-os-rel",
             "configurePreset": "mac-os"
+        },
+        {
+            "name": "win-rel",
+            "configurePreset": "win-rel"
         }
     ]
 }
