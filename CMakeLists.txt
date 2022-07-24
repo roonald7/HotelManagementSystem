@@ -8,21 +8,26 @@ else()
     set(VCPKG_MANIFEST_INSTALL ON CACHE STRING "" FORCE)
 endif()
 
-project(HotelManagementSystem
-        VERSION 0.0.1
-        DESCRIPTION "The leading Hello World App"
-        LANGUAGES CXX
+project(
+    HotelManagementSystem
+    VERSION 0.0.1
+    DESCRIPTION "The leading Hello World App"
+    LANGUAGES CXX
 )        
 
 set(VCPKG_JSON_TIMESTAMP_PREV "${vcpkg_json_timestamp}" CACHE STRING "" FORCE)       
-        
+set(nlohmann-json_IMPLICIT_CONVERSIONS OFF)
+
 find_package(nlohmann_json CONFIG REQUIRED)
 find_package(fmt CONFIG REQUIRED)
 
 add_library(
     ${PROJECT_NAME}SRCS
 
+    src/guest.cpp
     src/Hotel.cpp
+    src/person.cpp
+    src/utils.cpp
 )
 
 add_executable(
@@ -46,11 +51,18 @@ target_compile_features(
         cxx_std_17
 )
 
+target_compile_options(
+    ${PROJECT_NAME}SRCS
+
+    PUBLIC
+        $<$<CXX_COMPILER_ID:MSVC>:/uft-8> 
+)
 target_link_libraries(
     ${PROJECT_NAME}SRCS
 
     PUBLIC
         fmt::fmt
+        nlohmann_json::nlohmann_json
 )
 
 target_link_libraries(
