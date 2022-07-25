@@ -44,13 +44,6 @@ Hotel mock_hotel()
 {
 	Hotel sdkHotelMaracanau;
 
-	sdkHotelMaracanau.registerperson({"Augusto Pedrosa", "Fortaleza", ""});
-	sdkHotelMaracanau.registerperson({"Breno Gomes", "Maracanaú", ""});
-	sdkHotelMaracanau.registerperson({"Estevao Simao", "Fortaleza", ""});
-	sdkHotelMaracanau.registerperson({"Polycarpo Neto", "Caucaia", ""});
-	sdkHotelMaracanau.registerperson({"Rosemberg Braga", "Eusébio", ""});
-	sdkHotelMaracanau.registerperson({"Washington Filho", "Fortaleza", ""});
-
 	sdkHotelMaracanau.showRegisteredpersons();
 
 	return sdkHotelMaracanau;

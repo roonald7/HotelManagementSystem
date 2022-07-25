@@ -5,13 +5,14 @@
 
 Hotel::Hotel()
 {
+    loadDataBase();
 }
 
 Hotel::~Hotel()
 {
 }
 
-void Hotel::registerperson(const ns::Person &person)
+void Hotel::registerperson(const Person &person)
 {
     hotelDataBase.listOfRegisteredperson.push_back(person);
 }
@@ -28,4 +29,15 @@ void Hotel::showRegisteredpersons()
 
 void Hotel::loadDataBase()
 {
+    fmt::print("{}", get_file_content(pathDataRegisters));
+    auto json_ = nlohmann::json::parse(get_file_content(pathDataRegisters));
+
+    hotelDataBase = json_.get<HotelDataCtx>();
+}
+
+void Hotel::updateDataBase()
+{
+    nlohmann::json j = hotelDataBase;
+
+    write_json(j, pathDataRegisters);
 }

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.17)
 
 file(TIMESTAMP "${CMAKE_CURRENT_LIST_DIR}/vcpkg.json" vcpkg_json_timestamp)
 
@@ -55,7 +55,8 @@ target_compile_options(
     ${PROJECT_NAME}SRCS
 
     PUBLIC
-        $<$<CXX_COMPILER_ID:MSVC>:/uft-8> 
+        $<$<CXX_COMPILER_ID:MSVC>:/uft-8>
+        # $<$<CXX_COMPILER_ID:AppleClang>:uft-8>
 )
 target_link_libraries(
     ${PROJECT_NAME}SRCS

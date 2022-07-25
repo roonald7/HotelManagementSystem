@@ -4,15 +4,12 @@
 
 using namespace std;
 
-namespace ns
-{
-
 struct Person
 {
     string name;
     string address;
     string phone;
     
+    Person() {}
     Person(string name, string address, string phone);
 };
-}

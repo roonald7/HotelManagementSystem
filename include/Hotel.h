@@ -3,24 +3,23 @@
 #include "guest.h"
 #include <vector>
 
-namespace ns
-{
 struct HotelDataCtx
 {
-    vector<ns::Guest> listOfGuests;
-    vector<ns::Person> listOfRegisteredperson;
+    vector<Guest> listOfGuests;
+    vector<Person> listOfRegisteredperson;
 };
-}
+
 class Hotel
 {
 private:
-    ns::HotelDataCtx hotelDataBase;
-    string pathDataRegisters = "/dataBase.json";
+    HotelDataCtx hotelDataBase;
+    string pathDataRegisters = "./data/dataBase.json";
 public:
     Hotel();
     ~Hotel();
 
-    void registerperson(const ns::Person &person);
+    void registerperson(const Person &person);
     void showRegisteredpersons();
     void loadDataBase();
+    void updateDataBase();
 };
