@@ -22,7 +22,6 @@ void to_json(json &j, const Guest &guest)
 {
     j = json{
         {"person", guest.person},
-        {"room_num", guest.room_num},
         {"days", guest.days},
         {"fare", guest.fare}
     };
@@ -31,7 +30,6 @@ void to_json(json &j, const Guest &guest)
 void from_json(const json &j, Guest &guest)
 {
     j.at("person").get_to(guest.person);
-    j.at("room_num").get_to(guest.room_num);
     j.at("days").get_to(guest.days);
     j.at("fare").get_to(guest.fare);
 }

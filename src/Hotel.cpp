@@ -2,7 +2,8 @@
 #include "json_models.h"
 #include <fmt/format.h>
 
-Hotel::Hotel()
+Hotel::Hotel(std::string hotelName)
+    : hotelName(hotelName)
 {
     loadDataBase();
 }
@@ -13,24 +14,31 @@ Hotel::~Hotel()
 
 void Hotel::registerPerson(const Person &person)
 {
-    hotelDataBase.listOfRegisteredPerson.push_back(person);
+    hotelDataBase.listOfRegisteredPerson[hotelDataBase.listOfRegisteredPerson.size() + 1] = person;
 }
 
-void Hotel::registerGuest(const Guest &guest)
+void Hotel::registerGuest(const int &room_num, const Guest &guest)
 {
-    hotelDataBase.listOfGuests.push_back(guest);
+    hotelDataBase.listOfGuests[room_num] = guest;
 }
 
 void Hotel::showRegisteredPersons()
 {
     fmt::print("List of Registered person:\n");
 
-    for(const auto& p : hotelDataBase.listOfRegisteredPerson)
+    for(const auto& [id, p] : hotelDataBase.listOfRegisteredPerson)
     {
-        fmt::print("\tName: {} {}\n\tAddres: {}\n\tPhone Number: {}\n\n", p.name, p.surname, p.address, p.phone);
+        fmt::print("\tId: {}\n\tName: {}\n\tAddres: {}\n\tPhone Number: {}\n\n", id, p.fullName(), p.address, p.phone);
     }
 }
 
+void Hotel::showRoomsStatus()
+{
+    for(const auto &[room, guest] : hotelDataBase.listOfGuests)
+    {
+        fmt::print("\tRoom Number: {}\n\tGuest: {}\n\n", room, guest.person.fullName());
+    }
+}
 auto Hotel::getHotelDataBase() const -> HotelDataCtx
 {
     return hotelDataBase;
@@ -50,10 +58,6 @@ void Hotel::loadDataBase()
         fmt::print("There's no available data base. An empty data will be created!\n");
         updateDataBase();
     }
-    
-    
-
-    // hotelDataBase = json_.get<HotelDataCtx>();
 }
 
 void Hotel::updateDataBase()
