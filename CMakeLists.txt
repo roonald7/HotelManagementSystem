@@ -26,8 +26,9 @@ add_library(
 
     src/guest.cpp
     src/Hotel.cpp
+    src/json_models.cpp
     src/person.cpp
-    src/utils.cpp
+    src/utils_io.cpp
 )
 
 add_executable(
@@ -55,9 +56,10 @@ target_compile_options(
     ${PROJECT_NAME}SRCS
 
     PUBLIC
-        $<$<CXX_COMPILER_ID:MSVC>:/uft-8>
-        # $<$<CXX_COMPILER_ID:AppleClang>:uft-8>
+        $<$<CXX_COMPILER_ID:MSVC>:/utf-8>
+        $<$<CXX_COMPILER_ID:AppleClang>:-finput-charset=utf-8>
 )
+
 target_link_libraries(
     ${PROJECT_NAME}SRCS
 
@@ -72,3 +74,14 @@ target_link_libraries(
     PUBLIC
         ${PROJECT_NAME}SRCS
 )
+
+add_custom_target(
+    run
+
+    COMMAND
+        ${PROJECT_NAME}
+
+    USES_TERMINAL
+)
+
+add_dependencies(run ${PROJECT_NAME})

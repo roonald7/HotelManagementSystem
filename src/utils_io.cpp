@@ -1,4 +1,4 @@
-#include "utils.h"
+#include "utils_io.h"
 
 std::string get_file_content(std::string file_path) {
     std::ifstream file;
@@ -11,11 +11,12 @@ std::string get_file_content(std::string file_path) {
     while(file.good()) {
         file >> line;
         if (file.good()) {
-            file_content.append(line + "\n");
-        } 
+            file_content.append(line);
+        }
     }
-    
+
     file.close();
+
     return file_content;
 }
 

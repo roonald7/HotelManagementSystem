@@ -6,20 +6,22 @@
 struct HotelDataCtx
 {
     vector<Guest> listOfGuests;
-    vector<Person> listOfRegisteredperson;
+    vector<Person> listOfRegisteredPerson;
 };
 
 class Hotel
 {
 private:
     HotelDataCtx hotelDataBase;
-    string pathDataRegisters = "./data/dataBase.json";
+    string pathDataRegisters = "./dataBase.json";
 public:
     Hotel();
     ~Hotel();
 
-    void registerperson(const Person &person);
-    void showRegisteredpersons();
+    void registerPerson(const Person &person);
+    void registerGuest(const Guest &guest);
+    void showRegisteredPersons();
     void loadDataBase();
     void updateDataBase();
+    auto getHotelDataBase() const -> HotelDataCtx;
 };

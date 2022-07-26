@@ -11,40 +11,31 @@
 
 using namespace std;
 
-// MARK:- Interface Functions Here =>
-
-void intro()
-{
-	cout << "\n\n\t            ";
-	cout << "     C++ Project On Hotel Management System";
-	cout << "\n\n\t\t\t\t     MADE BY";
-	cout << "\n°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°";
-	cout << "°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°\n";
-	cout << "||\t\t\t\t\t\t\t\t\t      ||\n";
-	cout << "||\t\t\t\t\t\t\t\t\t      ||\n";
-	cout << "||\t\t\t\tRonald Anderson\t\t\t\t      ||\n";
-	cout << "||\t\t\t\t\t\t\t\t\t      ||\n";
-	cout << "||\t\t\t\t\t  \t\t\t\t      ||\n";
-	cout << "°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°";
-	cout << "°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°\n";
-}
-
 Hotel mock_hotel();
 
 int main(int argc, char const *argv[])
 {
-	string dataPath = "./hotel_data.json";
-
 	auto hotel = mock_hotel();
-	
+
 	return 0;
 }
 
 Hotel mock_hotel()
 {
-	Hotel sdkHotelMaracanau;
+	Hotel ibis;
 
-	sdkHotelMaracanau.showRegisteredpersons();
+	// ibis.registerPerson(
+	// 	{"Jullyanne", "Cassimiro", "Maracanaú", "859XXXX-XXXX"}
+	// );
 
-	return sdkHotelMaracanau;
+	// ibis.registerPerson(
+	// 	{"Ronald", "Castro", "Maracanaú", "859XXXX-XXXX"}
+	// );
+
+	// ibis.registerGuest({ibis.getHotelDataBase().listOfRegisteredPerson[0], 1, 1, 0.1});
+	// ibis.updateDataBase();
+
+	ibis.showRegisteredPersons();
+
+	return ibis;
 }

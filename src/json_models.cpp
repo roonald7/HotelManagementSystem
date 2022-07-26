@@ -1,35 +1,19 @@
-#pragma once
-
-#include "Hotel.h"
-#include <nlohmann/json.hpp>
-#include <iomanip>
-
-using json = nlohmann::json;
-using namespace std;
-
-namespace ns
-{
-
-    void to_json(json &j, const Person &p);
-    void from_json(const json &j, Person &p);
-    void to_json(json &j, const Guest &guest);
-    void from_json(const json &j, Guest &guest);
-    void to_json(json &j, const HotelDataCtx &hotelData);
-    void from_json(const json &j, HotelDataCtx &hotelData);
-
-}
+#include "json_models.h"
 
 void to_json(json &j, const Person &p)
 {
     j = json{
         {"name", p.name},
+        {"surname", p.surname},
         {"address", p.address},
-        {"phone", p.phone}};
+        {"phone", p.phone}
+    };
 }
 
 void from_json(const json &j, Person &p)
 {
     j.at("name").get_to(p.name);
+    j.at("surname").get_to(p.surname);
     j.at("address").get_to(p.address);
     j.at("phone").get_to(p.phone);
 }
@@ -55,13 +39,13 @@ void from_json(const json &j, Guest &guest)
 void to_json(json &j, const HotelDataCtx &hotelData)
 {
     j = json{
-        {"guests", {hotelData.listOfGuests}},
-        {"registeredPersons", {hotelData.listOfRegisteredperson}}
+        {"guests", hotelData.listOfGuests},
+        {"registeredPersons", hotelData.listOfRegisteredPerson}
     };
 }
 
 void from_json(const json &j, HotelDataCtx &hotelData)
 {
     j.at("guests").get_to(hotelData.listOfGuests);
-    j.at("registeredPerson").get_to(hotelData.listOfRegisteredperson);
+    j.at("registeredPersons").get_to(hotelData.listOfRegisteredPerson);
 }

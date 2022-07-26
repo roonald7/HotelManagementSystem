@@ -17,13 +17,23 @@
             }
         },
         {
-            "name": "mac-os",
+            "name": "macOs-rel",
             "displayName": "MacOs Release Config",
             "generator": "Ninja",
             "inherits": "default",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release",
                 "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreaded",
+                "VCPKG_TARGET_TRIPLET": "arm64-osx"
+            }
+        },
+        {
+            "name": "macOs-dbg",
+            "displayName": "MacOs Debug Config",
+            "generator": "Ninja",
+            "inherits": "default",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
                 "VCPKG_TARGET_TRIPLET": "arm64-osx"
             }
         },
@@ -41,8 +51,12 @@
     ],
     "buildPresets": [
         {
-            "name": "mac-os-rel",
-            "configurePreset": "mac-os"
+            "name": "macOs-dbg",
+            "configurePreset": "macOs-dbg"
+        },
+        {
+            "name": "macOs-rel",
+            "configurePreset": "macOs-rel"
         },
         {
             "name": "win-rel",
