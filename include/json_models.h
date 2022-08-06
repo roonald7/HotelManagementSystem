@@ -13,3 +13,4 @@ void to_json(json &j, const Guest &guest);
 void from_json(const json &j, Guest &guest);
 void to_json(json &j, const HotelDataCtx &hotelData);
 void from_json(const json &j, HotelDataCtx &hotelData);
+

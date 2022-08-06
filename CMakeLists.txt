@@ -18,8 +18,11 @@ project(
 set(VCPKG_JSON_TIMESTAMP_PREV "${vcpkg_json_timestamp}" CACHE STRING "" FORCE)       
 set(nlohmann-json_IMPLICIT_CONVERSIONS OFF)
 
+find_package(clipp CONFIG REQUIRED)
 find_package(nlohmann_json CONFIG REQUIRED)
 find_package(fmt CONFIG REQUIRED)
+
+add_subdirectory(proto)
 
 add_library(
     ${PROJECT_NAME}SRCS
@@ -64,8 +67,10 @@ target_link_libraries(
     ${PROJECT_NAME}SRCS
 
     PUBLIC
+        clipp::clipp
         fmt::fmt
         nlohmann_json::nlohmann_json
+        hotelProtobuf
 )
 
 target_link_libraries(

@@ -4,5 +4,5 @@
 #include <nlohmann/json.hpp>
 #include <string>
 
-std::string get_file_content(std::string file_path);
+auto get_file_content(std::string file_path) -> std::string;
 void write_json(const nlohmann::json &json, const std::string &file_path);

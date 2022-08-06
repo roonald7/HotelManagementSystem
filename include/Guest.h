@@ -12,3 +12,4 @@ struct Guest
     Guest();
     Guest(Person person, uint8_t days, float fare);
 };
+
