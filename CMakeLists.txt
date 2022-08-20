@@ -32,6 +32,9 @@ add_library(
     src/json_models.cpp
     src/person.cpp
     src/utils_io.cpp
+
+    src/services/hotelServices.cpp
+    src/services/utilsHotelServices.cpp
 )
 
 add_executable(

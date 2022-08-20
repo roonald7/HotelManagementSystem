@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package ragc;
+
+message PersonProto
+{
+    string name = 1;
+    string surname = 2;
+    string address = 3;
+    string phone = 4;
+}
+
+message GuestProto
+{
+    PersonProto person = 1;
+    int32 days = 2;
+    float fare = 3;
+}
+
+message GuestMapProto
+{
+    int32 room = 1;
+    GuestProto guest = 2;
+}
+
+message PersonMapProto
+{
+    int32 id = 1;
+    PersonProto person = 2;
+}
+
+message ListOfGuestsData
+{
+    repeated GuestMapProto list_of_guest = 1;
+}
+
+message ListOfRegisteredPersonData
+{
+    repeated PersonMapProto list_of_registered_person = 2;
+}
+
+message EmptyRequest
+{
+}
+
+message GetListOfGuestsReply
+{
+    ListOfGuestsData data = 1;
+}
+
+message GetListOfRegisteredPersonReply
+{
+    ListOfRegisteredPersonData data = 1;
+}

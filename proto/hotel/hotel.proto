@@ -1,10 +1,11 @@
 syntax = "proto3";
 
-package wgs;
+package ragc;
 
-import "proto/hotel/showRooms.proto";
+import "hotel/guest.proto";
 
-service Hotel
+service HotelProto
 {
-    rpc GetShowRooms (ShowRoomsRequest) returns (stream showRoomsReply);
+    rpc GetListOfGuests (EmptyRequest) returns (stream GetListOfGuestsReply);
+    rpc GetListOfRegisterdPerson (EmptyRequest) returns (stream GetListOfRegisteredPersonReply);
 }

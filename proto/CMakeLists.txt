@@ -6,7 +6,7 @@ add_library(
     hotelProtobuf
     
     hotel/hotel.proto
-    hotel/showRooms.proto
+    hotel/guest.proto
 )
 
 target_link_libraries(
