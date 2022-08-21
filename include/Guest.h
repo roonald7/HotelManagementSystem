@@ -1,6 +1,6 @@
 #pragma once
 
-#include "person.h"
+#include "Person.h"
 #include <stdint.h>
 
 struct Guest

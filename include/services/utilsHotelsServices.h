@@ -1,7 +1,7 @@
 #pragma once
 
-#include "person.h"
-#include "guest.h"
+#include "Person.h"
+#include "Guest.h"
 #include "hotel/guest.pb.h"
 
 namespace ragc
