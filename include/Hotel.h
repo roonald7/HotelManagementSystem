@@ -19,6 +19,7 @@ public:
     ~Hotel();
 
     string hotelName;
+    bool registerGuestByPersonId(const int &personId, const int &room_num);
     void registerPerson(const Person &person);
     void registerGuest(const int &room_num, const Guest &guest);
     void showRegisteredPersons();

@@ -1,5 +1,6 @@
 #include "utils_io.h"
 #include "json_models.h"
+#include "Hotel.h"
 #include <fmt/format.h>
 
 Hotel::Hotel(std::string hotelName)
@@ -15,11 +16,23 @@ Hotel::~Hotel()
 void Hotel::registerPerson(const Person &person)
 {
     hotelDataBase.listOfRegisteredPerson[hotelDataBase.listOfRegisteredPerson.size() + 1] = person;
+    updateDataBase();
 }
 
 void Hotel::registerGuest(const int &room_num, const Guest &guest)
 {
     hotelDataBase.listOfGuests[room_num] = guest;
+    updateDataBase();
+}
+
+bool Hotel::registerGuestByPersonId(const int &personId, const int &room_num)
+{   
+    if(hotelDataBase.listOfRegisteredPerson.contains(personId))
+    {
+        registerGuest(room_num, {hotelDataBase.listOfRegisteredPerson[personId], 3, 1});
+        return true;
+    }
+    return false;
 }
 
 void Hotel::showRegisteredPersons()
@@ -39,6 +52,7 @@ void Hotel::showRoomsStatus()
         fmt::print("\tRoom Number: {}\n\tGuest: {}\n\n", room, guest.person.fullName());
     }
 }
+
 auto Hotel::getHotelDataBase() const -> HotelDataCtx
 {
     return hotelDataBase;

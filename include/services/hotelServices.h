@@ -15,6 +15,8 @@ namespace ragc
         HotelService()
         : sdkHotel("SDK Hotel Maracanaú") {}
         
+        grpc::Status AddPerson(grpc::ServerContext* context, const AddPersonRequest* request, ::grpc::ServerWriter<CommandResponseStatusReply>* writer) override;
+        grpc::Status AddGuest(grpc::ServerContext* context, const AddGuestRequest* request, ::grpc::ServerWriter<CommandResponseStatusReply>* writer) override;
         grpc::Status GetListOfGuests(grpc::ServerContext* context, const EmptyRequest* request, ::grpc::ServerWriter<GetListOfGuestsReply>* writer) override;
         grpc::Status GetListOfRegisterdPerson(grpc::ServerContext* context, const EmptyRequest* request, ::grpc::ServerWriter<GetListOfRegisteredPersonReply>* writer) override;
     private:

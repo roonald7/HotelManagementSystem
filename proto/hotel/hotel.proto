@@ -6,6 +6,8 @@ import "hotel/guest.proto";
 
 service HotelProto
 {
+    rpc AddPerson (AddPersonRequest) returns (stream CommandResponseStatusReply);
+    rpc AddGuest (AddGuestRequest) returns (stream CommandResponseStatusReply);
     rpc GetListOfGuests (EmptyRequest) returns (stream GetListOfGuestsReply);
     rpc GetListOfRegisterdPerson (EmptyRequest) returns (stream GetListOfRegisteredPersonReply);
 }

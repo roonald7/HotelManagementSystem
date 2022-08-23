@@ -4,6 +4,36 @@
 namespace ragc
 {
 
+    grpc::Status HotelService::AddPerson(grpc::ServerContext* context, const AddPersonRequest* request, ::grpc::ServerWriter<CommandResponseStatusReply>* writer)
+    {
+        CommandResponseStatusReply reply;
+
+        auto person = make_person(request->person());
+        sdkHotel.registerPerson(person);
+
+        writer->Write(reply);
+        
+        return grpc::Status::OK;
+    }
+    
+    grpc::Status HotelService::AddGuest(grpc::ServerContext* context, const AddGuestRequest* request, ::grpc::ServerWriter<CommandResponseStatusReply>* writer)
+    {
+        CommandResponseStatusReply reply;
+
+        if(sdkHotel.registerGuestByPersonId(request->person_id(), request->room_number()))
+        {
+            reply.set_exec_status(CommandResponseStatusReply::COMMAND_EXECUTION_SUCCESSFUL);
+        }
+        else
+        {
+            reply.set_exec_status(CommandResponseStatusReply::COMMAND_EXECUTION_FAILED);
+        }
+
+        writer->Write(reply);
+
+        return grpc::Status::OK;
+    }
+        
     grpc::Status HotelService::GetListOfGuests(grpc::ServerContext* context, const EmptyRequest* request, ::grpc::ServerWriter<GetListOfGuestsReply>* writer)
     {
         GetListOfGuestsReply reply;

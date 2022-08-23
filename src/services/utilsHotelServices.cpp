@@ -2,6 +2,11 @@
 
 namespace ragc
 {
+    auto make_person(const PersonProto& person) -> Person
+    {
+        return Person(person.name(), person.surname(), person.address(), person.phone());
+    }
+
     void write_guest_to_proto(const Guest& guest, GuestProto* proto)
     {   
         write_person_to_proto(guest.person, proto->mutable_person());

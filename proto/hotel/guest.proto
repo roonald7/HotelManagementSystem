@@ -52,3 +52,25 @@ message GetListOfRegisteredPersonReply
 {
     ListOfRegisteredPersonData data = 1;
 }
+
+message AddPersonRequest
+{
+    PersonProto person = 1;
+}
+
+message AddGuestRequest
+{
+    int32 person_id = 1;
+    int32 room_number = 2;
+}
+
+message CommandResponseStatusReply
+{
+    enum StatusProto
+    {
+        COMMAND_EXECUTION_SUCCESSFUL = 0;
+        COMMAND_EXECUTION_FAILED = 1;
+    }
+
+    StatusProto exec_status = 1;
+}

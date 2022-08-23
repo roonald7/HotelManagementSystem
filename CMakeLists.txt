@@ -55,7 +55,7 @@ target_compile_features(
     ${PROJECT_NAME}SRCS 
     
     PUBLIC
-        cxx_std_17
+        cxx_std_20
 )
 
 target_compile_options(
